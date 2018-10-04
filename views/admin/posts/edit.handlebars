@@ -1,0 +1,70 @@
+<h1>Edit Post</h1>
+
+<form action="/admin/posts/edit/{{post.id}}?_method=PUT" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input name="title" type="text" class="form-control" id="title" value="{{post.title}}">
+    </div>
+    <div class="form-group">
+        <label for="file">File Upload</label>
+        <input type="file" name="file" class="form-control">
+    </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input name="price" type="text" class="form-control" id="title" value="{{post.price}}">
+        </div>
+
+
+    <div class="form-group">
+        <label for="category">Category</label>
+        <select name="category" id="status" class="form-control">
+        {{#select post.category}}
+            {{#each categories}}   
+                <option value="{{id}}">{{name}}</option>
+            {{/each}}
+        {{/select}}
+        </select>
+    </div>
+
+    {{!-- <div class="form-group">
+        <label for="onSale">On Sale</label>
+        <select name="onSale" class="form-control" id="status">
+    {{#each post.onSale}}
+            <option value="{{id}}">{{onSale}}</option>
+    {{/each}}
+        </select>
+    </div> --}}
+
+    <div class="form-check">
+        <label for="onSale" class="form-check-label">
+            <input name="onSale" type="checkbox" {{#if post.onSale}} checked="checked" {{/if}} class="form-check-input"
+                id="onSale">
+            On Sale
+        </label>
+    </div>
+    
+    <div class="form-check">
+        <label for="featured" class="form-check-label">
+            <input name="featured" type="checkbox" {{#if post.featured}} checked="checked" {{/if}} class="form-check-input" 
+            id="featured">
+            Featured
+        </label>
+    </div>
+
+    <div class="form-check">
+        <label for="outOfStock" class="form-check-label">
+            <input name="outOfStock" type="checkbox" {{#if post.outOfStock}} checked="checked" {{/if}} class="form-check-input"
+                id="outOfStock">
+            outOfStock
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label for="body">Body</label>
+        <textarea name="body" cols="30" rows="10" class="form-control" id="body">{{post.body}}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Post</button>
+
+</form>

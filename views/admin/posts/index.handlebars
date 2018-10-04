@@ -1,0 +1,41 @@
+<h1>ALL POSTS</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>File</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>On Sale</th>
+            <th>Category</th>
+            <th>Featured</th>
+            <th>Out of Stock</th>
+
+            {{!-- <th>Date</th> --}}
+            {{!-- <th>Body</th> --}}
+        </tr>
+    </thead>
+    <tbody>
+        {{!-- loop each for --}}
+        {{#each posts}}
+        <tr>
+            <td>{{id}}</td>
+            <td><img height="50" class="img-responsive" src="/uploads/{{file}}" alt=""></td>
+            <td>{{title}}</td>
+            <td>{{price}}</td>
+            <td>{{onSale}}</td>
+            <td>{{category.name}}</td>
+            <td>{{featured}}</td>
+            <td>{{outOfStock}}</td>
+            {{!-- <td>{{generateTime date 'llll'}}</td> --}}
+            <td><a href="/admin/posts/edit/{{id}}" class="btn btn-info">Edit</a></td>
+            <td>
+                <form action="/admin/posts/{{id}}?_method=DELETE" method="post">
+                    <button type="submit" class="btn btn-danger">DELETE</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+
+</table>
