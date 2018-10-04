@@ -4,6 +4,19 @@ const Post = require('../../models/Post');
 const Comment = require('../../models/Comment');
 
 
+router.all('/*', (req, res, next)=>{
+    req.app.locals.layout = 'admin';
+    next();
+})
+
+router.get('/', (req, res)=>{
+    Comment.find({}).populate('user')
+        .then(comments=>{
+        res.render('admin/comments', {comments: comments});
+
+    })
+});
+
 router.post('/', (req, res)=>{
 
     Post.findOne({_id: req.body.id}).then(post=>{
