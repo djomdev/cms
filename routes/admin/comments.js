@@ -33,6 +33,10 @@ router.post('/', (req, res)=>{
     });
 });
 
-
+router.delete('/:id', (req, res)=>{
+    Comment.remove({_id: req.params.id}).then(deleteItem=>{
+        res.redirect('/admin/comments');
+    });
+});
 
 module.exports = router;
