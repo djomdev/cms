@@ -68,6 +68,7 @@ router.post('/create', (req, res) => {
         let onSale = true;
         let featured = true;
         let outOfStock = true;
+        let allowComments = true;
 
         if (req.body.onSale) {
             onSale = true;
@@ -84,6 +85,11 @@ router.post('/create', (req, res) => {
         } else {
             outOfStock = false;
         }
+        if (req.body.allowComments){
+            allowComments = true;
+        }else{
+            allowComments = false;
+        }
 
         const newPost = new Post({
             title: req.body.title,
@@ -92,6 +98,7 @@ router.post('/create', (req, res) => {
             category: req.body.category,
             featured: featured,
             outOfStock: outOfStock,
+            allowComments: allowComments,
             body: req.body.body,
             file: filename
         });
@@ -137,6 +144,11 @@ router.put('/edit/:id', (req, res)=>{
             } else {
                 outOfStock = false;
             }
+            if (req.body.allowComments){
+                allowComments = true;
+            }else{
+                allowComments = false;
+            }
 
             post.title = req.body.title;
             post.price = req.body.price,
@@ -144,6 +156,7 @@ router.put('/edit/:id', (req, res)=>{
             post.category = req.body.category;
             post.featured = req.body.featured;
             post.outOfStock = req.outOfStock;
+            post.allowComments = req.allowComments;
             post.body = req.body.body;
 
 

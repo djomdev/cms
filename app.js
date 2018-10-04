@@ -81,12 +81,16 @@ const admin = require('./routes/admin/index');
 const posts = require('./routes/admin/posts');
 const categories = require('./routes/admin/categories');
 const comments = require('./routes/admin/comments');
+const blog = require('./routes/blog/index');
+const blogposts = require('./routes/blog/blogposts');
+
 
 // const products = require('./routes/api/api');
 
 const Post = require('./models/Post');
 // const Category = require('./models/Category');
 const products = Post;
+
 // Use Routes
 
 app.use('/', home);
@@ -94,7 +98,12 @@ app.use('/admin', admin);
 app.use('/admin/posts', posts);
 app.use('/admin/categories', categories);
 app.use('/admin/comments', comments);
+app.use('/blog', blog);
+app.use('/blog/posts', blogposts);
+// app.use('/blog/categories', blogcategories);
+// app.use('/blog/comments', blogcomments);
 app.use('/api/v1/', api);
+
 
 
 app.use(express.json());

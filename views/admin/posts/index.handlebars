@@ -10,6 +10,7 @@
             <th>Category</th>
             <th>Featured</th>
             <th>Out of Stock</th>
+            <th>Allow Comments</th>
 
             {{!-- <th>Date</th> --}}
             {{!-- <th>Body</th> --}}
@@ -27,6 +28,7 @@
             <td>{{category.name}}</td>
             <td>{{featured}}</td>
             <td>{{outOfStock}}</td>
+            <td>{{allowComments}}</td>
             {{!-- <td>{{generateTime date 'llll'}}</td> --}}
             <td><a href="/admin/posts/edit/{{id}}" class="btn btn-info">Edit</a></td>
             <td>
