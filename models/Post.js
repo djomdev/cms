@@ -57,7 +57,7 @@ const PostSchema = new Schema({
         ref: 'comments'
     }]
 
-});
+}, {usePushEach: true});
 
 
 

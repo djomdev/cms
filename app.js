@@ -80,6 +80,8 @@ const home = require('./routes/home/index');
 const admin = require('./routes/admin/index');
 const posts = require('./routes/admin/posts');
 const categories = require('./routes/admin/categories');
+const comments = require('./routes/admin/comments');
+
 // const products = require('./routes/api/api');
 
 const Post = require('./models/Post');
@@ -91,6 +93,7 @@ app.use('/', home);
 app.use('/admin', admin);
 app.use('/admin/posts', posts);
 app.use('/admin/categories', categories);
+app.use('/admin/comments', comments);
 app.use('/api/v1/', api);
 
 
