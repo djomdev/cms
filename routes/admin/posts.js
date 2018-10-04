@@ -174,11 +174,18 @@ router.put('/edit/:id', (req, res)=>{
 
 router.delete('/:id', (req, res)=>{
     Post.findOneAndDelete({_id: req.params.id})
+        .populate('comments')
         .then(post=>{
             fs.unlink(uploadDir + post.file, (err)=>{
-                post.remove();
-                req.flash('sucess_message', 'Post was succesfully deleted');
-                res.redirect('/admin/posts');
+                if(!post.comments.length < 1){
+                    post.comments.forEach(comment => {
+                        comment.remove();
+                    });
+                }
+                post.remove().then(postRemoved=>{
+                    req.flash('sucess_message', 'Post was succesfully deleted');
+                    res.redirect('/admin/posts');
+                });
         });
     });
 });
