@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
     });
 
     router.get('/post/:id', (req, res) => {
-        Post.findOne({ _id: req.params.id })
+        Post.findOne({ _id: req.params.id }).populate('comments')
             .then(post => {
                 Category.find({}).then(categories => {
                     res.render('home/post', { post: post, categories: categories });
