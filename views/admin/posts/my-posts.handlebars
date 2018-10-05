@@ -11,7 +11,6 @@
             <th>Featured</th>
             <th>Out of Stock</th>
             <th>Allow Comments</th>
-            <th>View Posts</th>
 
             {{!-- <th>Date</th> --}}
             {{!-- <th>Body</th> --}}
@@ -31,6 +30,7 @@
             <td>{{outOfStock}}</td>
             <td>{{allowComments}}</td>
             <td><a href="/post/{{id}}">View</a></td>
+            {{!-- <td>{{generateTime date 'llll'}}</td> --}}
             <td><a href="/admin/posts/edit/{{id}}" class="btn btn-info">Edit</a></td>
             <td>
                 <form action="/admin/posts/{{id}}?_method=DELETE" method="post">
