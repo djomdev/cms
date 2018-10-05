@@ -31,6 +31,12 @@
             <p class="lead">{{post.body}}</p>
             <h6>SKU: {{post.id}}</h6>
         </span>
+
+        <hr>
+
+
+        {{#if user}}
+        {{#if post.allowComments}}
         <!-- Comments Form --> 
         <div class="card my-4">
             <h5 class="card-header">Leave a Comment:</h5>
@@ -45,8 +51,21 @@
             </div>
         </div>
 
+        {{else}}
+        <h2>Comments not allowed for this post</h2>
+        <br>
+        <hr>
+        {{/if}}
 
+        {{else}}
 
+        You need to login to comment<a href="/login"> Login</a>
+        <br>
+        <hr>
+
+        {{/if}}
+
+        
     {{#each post.comments}}
         <!-- Single Comment -->
         <div class="media mb-4">
