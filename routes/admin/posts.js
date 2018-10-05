@@ -92,6 +92,8 @@ router.post('/create', (req, res) => {
         }
 
         const newPost = new Post({
+            
+            user: req.user.id,
             title: req.body.title,
             price: req.body.price,
             onSale: onSale,
@@ -150,13 +152,13 @@ router.put('/edit/:id', (req, res)=>{
                 allowComments = false;
             }
 
+            post.user = req.user.id;
             post.title = req.body.title;
-            post.price = req.body.price,
+            post.price = req.body.price;
             post.onSale = onSale;
-            post.category = req.body.category;
-            post.featured = req.body.featured;
-            post.outOfStock = req.outOfStock;
-            post.allowComments = req.allowComments;
+            post.featured = featured;
+            post.outOfStock = outOfStock;
+            post.allowComments = allowComments;
             post.body = req.body.body;
 
 
