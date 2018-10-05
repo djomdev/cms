@@ -9,7 +9,7 @@
         <!-- Author -->
         <p class="lead">
             by
-            <a href="#">Web Page</a>
+            <a>WebMaster</a>
         </p>
 
         <hr>
@@ -25,10 +25,11 @@
         <hr>
 
         <!-- Post Content -->
-        <p class="lead">{{post.body}}</p>
-
-
-
+        <span>
+            <h4>Product Description</h4>
+            <h3>Price: ${{post.price}}</h3>  
+            <p class="lead">{{post.body}}</p>
+        </span>
         <!-- Comments Form -->
         <div class="card my-4">
             <h5 class="card-header">Leave a Comment:</h5>
@@ -42,9 +43,6 @@
                 </form>
             </div>
         </div>
-
-
-
 
         <!-- Single Comment -->
         <div class="media mb-4">
